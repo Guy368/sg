@@ -1,4 +1,3 @@
-# 2026 build trigger
 [app]
 
 # (str) Title of your application
@@ -12,6 +11,12 @@ package.domain = org.test
 
 # (str) Source code where the main.py live
 source.dir = .
+
+# (list) Requirements (must include all necessary Python Libraries)
+requirements = python3, kivy==2.3.0
+
+# (str) python-for-android branch to use (CRITICAL for 2026 builds)
+p4a.branch = develop
 
 # (list) Source files to include (let empty to include all the files)
 source.include_exts = py,png,jpg,kv,atlas
