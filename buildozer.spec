@@ -79,6 +79,10 @@ osx.kivy_version = 1.9.1
 # (bool) Indicate if the application should be fullscreen or not
 fullscreen = 0
 
+# (bool) If True, then automatically accept SDK license
+# agreements. This is intended for automation only.
+android.accept_sdk_license = True
+
 # (string) Presplash background color (for android toolchain)
 # Supported formats are: #RRGGBB #AARRGGBB or one of the following names:
 # red, blue, green, black, white, gray, cyan, magenta, yellow, lightgray,
