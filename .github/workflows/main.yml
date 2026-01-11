@@ -17,6 +17,9 @@ jobs:
           python-version: '3.10'
       - name: Install Buildozer and Cython
         run: pip install buildozer cython==0.29.33
+      - name: Install system dependencies (libtool)
+        run: sudo apt-get update && sudo apt-get install -y libtool
+        
       - name: Build Kivy App
         run: buildozer android debug
       - name: Upload Artifact
