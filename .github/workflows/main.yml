@@ -1,26 +1,24 @@
-name: Android APK Build
-on:
-  push:
-    branches:
-      - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-            # Install the correct compatibility library package
-      - name: Install ncurses dependency
-        run: sudo apt-get update && sudo apt-get install -y libncurses-dev
-        
-
-      - name: Build APK
-        uses: digreatbrian/buildozer-action@v2
+      
+      - name: Set up Python 3.10
+        uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          buildozer-cmd: buildozer -v android debug 
-      
+          
+      - name: Install Buildozer and Cython
+        run: pip install buildozer cython==0.29.33
+
+      # Install the correct compatibility library package
+      - name: Install ncurses dependency
+        run: sudo apt-get update && sudo apt-get install -y libncurses-dev
+
+      - name: Build Kivy App
+        run: buildozer android debug
+
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
