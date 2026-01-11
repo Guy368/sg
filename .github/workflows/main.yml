@@ -10,16 +10,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      # Use a reliable setup action that handles NDK/SDK/Buildozer dependencies
-      - name: Set up Kivy build environment
-        uses: ullaakut/kivy-buildozer-action@v1
+      # Use the correct, existing action that handles all dependencies
+      - name: Build APK
+        uses: digreatbrian/buildozer-action@v2
         with:
           python-version: '3.10'
-          # This action automatically handles all system dependencies (libtool, etc)
-      
-      - name: Build Kivy App
-        # This action runs buildozer automatically
-        run: buildozer android debug
+          # This action handles all system dependencies automatically
       
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
