@@ -12,9 +12,6 @@ package.domain = org.test
 # (str) Source code where the main.py live
 source.dir = .
 
-# (list) Requirements (must include all necessary Python Libraries)
-requirements = python3, kivy==2.3.0
-
 # (str) python-for-android branch to use (CRITICAL for 2026 builds)
 p4a.branch = develop
 
