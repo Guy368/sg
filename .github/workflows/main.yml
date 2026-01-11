@@ -8,12 +8,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-            - uses: actions/checkout@v4
-      
+      - uses: actions/checkout@v4
+
       # Install the correct compatibility library package
       - name: Install libtinfo dependency
         run: sudo apt-get update && sudo apt-get install -y libncursesw5
-      
+
       - name: Build APK
         uses: digreatbrian/buildozer-action@v2
         with:
