@@ -12,7 +12,7 @@ jobs:
 
       # Install the correct compatibility library package
       - name: Install libtinfo dependency
-        run: sudo apt-get update && sudo apt-get install -y libncurse-dev
+        run: sudo apt-get update && sudo apt-get install -y libncurses-dev
 
       - name: Build APK
         uses: digreatbrian/buildozer-action@v2
