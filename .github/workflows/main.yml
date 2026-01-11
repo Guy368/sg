@@ -21,22 +21,9 @@ jobs:
       - name: Install Buildozer and Cython
         run: pip install buildozer cython==0.29.33
 
-      # -----------------------------------------------------
-      # START OF CODE TO REPLACE
-      # Replace the next two 'name: Install...' blocks with the single new block below
-      # -----------------------------------------------------
-      # - name: Install system dependencies (libtool)
-      #   run: sudo apt-get update && sudo apt-get install -y libtool
-
-      # - name: Install ncurses dependency
-      #   run: sudo apt-get update && sudo apt-get install -y libncurses-dev
-      # -----------------------------------------------------
-      # END OF CODE TO REPLACE
-      # -----------------------------------------------------
-      
-      # Use this single, new step to install all necessary dependencies
+      # This step installs all required system libraries to fix the autoconf/libtool error
       - name: Install system dependencies (libtool, etc.)
-        run: sudo apt-get update && sudo apt-get install -y libtool libltdl-dev libffi-dev libssl-dev python3-dev build-essential
+        run: sudo apt-get update && sudo apt-get install -y libtool libltdl-dev libffi-dev libssl-dev python3-dev build-essential ncurses-base libncurses-dev
 
       - name: Build Kivy App
         run: buildozer android debug
