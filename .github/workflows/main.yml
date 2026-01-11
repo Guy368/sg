@@ -10,9 +10,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Install the correct compatibility library package
+            # Install the correct compatibility library package
       - name: Install ncurses dependency
         run: sudo apt-get update && sudo apt-get install -y libncurses-dev
+        
 
       - name: Build APK
         uses: digreatbrian/buildozer-action@v2
