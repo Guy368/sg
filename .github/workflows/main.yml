@@ -6,7 +6,7 @@ on:
   pull_request:
     branches:
       - main
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,7 +21,11 @@ jobs:
       - name: Install Buildozer and Cython
         run: pip install buildozer cython==0.29.33
 
-      # Install the correct compatibility library package
+      # Install the missing 'libtool' package to fix the autoconf error
+      - name: Install system dependencies (libtool)
+        run: sudo apt-get update && sudo apt-get install -y libtool
+
+      # Install ncurses dependency to fix the "unable to locate package" error
       - name: Install ncurses dependency
         run: sudo apt-get update && sudo apt-get install -y libncurses-dev
 
@@ -33,3 +37,4 @@ jobs:
         with:
           name: android-apk
           path: bin/*.apk
+          
