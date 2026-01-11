@@ -9,6 +9,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # PLACE THE NEW STEP HERE:
+      - name: Install libtinfo5 dependency
+        run: sudo apt-get update && sudo apt-get install -y libtinfo5
+      
+      - name: Build APK
+        uses: digreatbrian/buildozer-action@v2
+        with:
+          python-version: '3.10'
+      
+      - name: Upload Artifact
       
       # Use the correct, existing action that handles all dependencies
       - name: Build APK
